@@ -1,0 +1,54 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+pillow>=9.0.0
+
+# Transformers and NLP
+transformers
+huggingface_hub
+sentence-transformers
+sentencepiece
+nltk
+
+# Vision and Image Processing
+opencv-python
+timm
+imageio
+qwen-vl-utils
+
+# Data Processing and Utilities
+pandas
+h5py
+tqdm
+shortuuid
+dill
+psutil
+regex
+joblib
+scikit-learn
+webdataset
+datasets
+
+# Visualization
+seaborn
+
+# UI and Graphics
+imgui
+glfw
+pyspng
+
+# Text Processing
+ftfy
+
+# Build Tools
+setuptools
+ninja
+
+# Machine Learning Acceleration
+accelerate
+torch-kmeans
+
+# Evaluation Metrics
+pycocotools
+pycocoevalcap
