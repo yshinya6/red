@@ -30,6 +30,8 @@ bash experiments/01_benchmarks/qwen2.5-vl-8b/gqa/cot.sh
 bash experiments/01_benchmarks/qwen2.5-vl-8b/gqa/red.sh
 ```
 
+## Citation
+
 ```bibtex
 @inproceedings{Yamaguchi_CVPR26_RED,
   title={Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought},
