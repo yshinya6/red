@@ -1,6 +1,6 @@
-PATTERN=gqa-qwen2.5vl-8b-direct
+PATTERN=gqa-qwen2.5vl-7b-direct
 TASK=gqa
-MODEL=Qwen/Qwen2.5-VL-8B-Instruct
+MODEL=Qwen/Qwen2.5-VL-7B-Instruct
 IMGDIR=data/gqa/images
 QUESTION=data/gqa/test.json
 
