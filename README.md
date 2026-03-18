@@ -17,15 +17,7 @@ Large vision-language models (LVLMs) have demonstrated remarkable capabilities b
 - 2. Extract and place images in `data/gqa/images`
 
 ## Example on Qwen2.5VL-7B
-### Run Direct Baseline
-```bash
-bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/direct.sh
-```
-### Run CoT Baseline
-```bash
-bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/cot.sh
-```
-### Run RED
+
 ```bash
 bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/red.sh
 ```
