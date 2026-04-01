@@ -16,18 +16,18 @@ Large vision-language models (LVLMs) have demonstrated remarkable capabilities b
 - 1. Download input images from [here](https://downloads.cs.stanford.edu/nlp/data/gqa/images.zip)
 - 2. Extract and place images in `data/gqa/images`
 
-## Example on Qwen2.5VL-7B
+## Example on Qwen3VL-8B
 ### Run Direct Baseline
 ```bash
-bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/direct.sh
+bash experiments/01_benchmarks/qwen3-vl-8b/gqa/direct.sh
 ```
 ### Run CoT Baseline
 ```bash
-bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/cot.sh
+bash experiments/01_benchmarks/qwen3-vl-8b/gqa/cot.sh
 ```
 ### Run RED
 ```bash
-bash experiments/01_benchmarks/qwen2.5-vl-7b/gqa/red.sh
+bash experiments/01_benchmarks/qwen3-vl-8b/gqa/red.sh
 ```
 
 ## Citation
