@@ -17,6 +17,8 @@ Large vision-language models (LVLMs) have demonstrated remarkable capabilities b
 - 2. Extract and place images in `data/gqa/images`
 
 ## Example on Qwen3VL-8B
+**[2026/4/1]** We observed a significant performance degradation of Qwen2.5-VL-7B in the latest transformer version for some reasons. Please try to use Qwen3-VL-8B instead of Qwen2.5-VL-7B for demonstration.
+
 ### Run Direct Baseline
 ```bash
 bash experiments/01_benchmarks/qwen3-vl-8b/gqa/direct.sh
