@@ -40,8 +40,7 @@ def _calculate_entropy(logits: torch.Tensor) -> torch.Tensor:
 def _compile_logits(logits: torch.Tensor, scores: torch.Tensor, strategy: str, alpha=0.5, temperature=1.0):
     match strategy:
         case "poe":
-            logits_rationale = logits[:-1]
-            return (scores.unsqueeze(-1) * logits_rationale).sum(dim=0).unsqueeze(0)
+            return (scores.unsqueeze(-1) * logits).sum(dim=0).unsqueeze(0)
         case _:
             raise NotImplementedError()
 
