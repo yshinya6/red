@@ -39,3 +39,6 @@ bash experiments/01_benchmarks/qwen3-vl-8b/gqa/red.sh
   year={2026}
 }
 ```
+
+## Acknowledgement
+We thank Xie Yumu for reporting a bug in the logit computation with detailed reports, which helped us identify the theory-implementation discrepancy.
