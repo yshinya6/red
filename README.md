@@ -4,6 +4,13 @@
 ## Overview
 Large vision-language models (LVLMs) have demonstrated remarkable capabilities by integrating pre-trained vision encoders with large language models (LLMs). Similar to single-modal LLMs, chain-of-thought (CoT) prompting has been adapted for LVLMs to enhance multi-modal reasoning by generating intermediate rationales based on visual and textual inputs. While CoT is assumed to improve grounding and accuracy in LVLMs, our experiments reveal a key challenge: existing LVLMs often ignore the contents of generated rationales in CoT reasoning. To address this, we re-formulate **multi-modal CoT reasoning as a KL-constrained reward maximization focused on rationale-conditional log-likelihood**. As the optimal solution, we propose **rationale-enhanced decoding (RED)**, a novel plug-and-play inference-time decoding strategy. RED harmonizes visual and rationale information by multiplying distinct image-conditional and rationale-conditional next token distributions. This code repository privides a minimal Python implementation of RED and experimental evaluations with GQA.
 
+## Notes
+
+**[2026/4/1]** We observed a significant performance degradation of Qwen2.5-VL-7B in the latest transformer version for some reasons. Please try to use Qwen3-VL-8B instead of Qwen2.5-VL-7B for demonstration.
+
+**[2026/4/17]** We observed a discrepancy between theory and experiment regarding $\lambda$. While $\lambda=0$ should theoretically yield the same result as the image-conditional $p(y|x,q)$, its performance is significantly worse than that of the Direct baseline (with $p(y|x,q)$ ). We suspect that this discrepancy is caused by numerical errors in the logit calculations resulting from the batch parallelization implementation we added after acceptance to improve speed, which is causing the distribution to diverge. Please note that the experiments in the main paper calculate image- and rationale-conditional logits in a serial manner, not in batch parallel. We plan to publish the serial version as soon as possible.
+
+
 
 ## Requirements
 ### Middleware Requirements
@@ -17,7 +24,6 @@ Large vision-language models (LVLMs) have demonstrated remarkable capabilities b
 - 2. Extract and place images in `data/gqa/images`
 
 ## Example on Qwen3VL-8B
-**[2026/4/1]** We observed a significant performance degradation of Qwen2.5-VL-7B in the latest transformer version for some reasons. Please try to use Qwen3-VL-8B instead of Qwen2.5-VL-7B for demonstration.
 
 ```bash
 bash experiments/01_benchmarks/qwen3-vl-8b/gqa/red.sh
