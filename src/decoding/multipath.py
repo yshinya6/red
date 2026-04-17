@@ -37,10 +37,11 @@ def _calculate_entropy(logits: torch.Tensor) -> torch.Tensor:
     return entropy
 
 
-def _compile_logits(logits: torch.Tensor, scores: torch.Tensor, strategy: str, alpha=0.5, temperature=1.0):
+def _compile_logits(logits: torch.Tensor, scores: torch.Tensor, strategy: str):
     match strategy:
         case "poe":
-            return (scores.unsqueeze(-1) * logits).sum(dim=0).unsqueeze(0)
+            next_token_logits = (scores.unsqueeze(-1) * logits).sum(dim=0).unsqueeze(0)
+            return next_token_logits
         case _:
             raise NotImplementedError()
 
@@ -54,8 +55,7 @@ def _sample(
     synced_gpus: bool = False,
     streamer: Optional["BaseStreamer"] = None,
     context_scores: torch.Tensor = None,
-    compile_strategy: str = "uniform",
-    alpha: float = 0.5,
+    compile_strategy: str = "poe",
     **model_kwargs,
 ) -> GenerateNonBeamOutput | torch.LongTensor:
     r"""
@@ -176,7 +176,6 @@ def _sample(
             next_token_logits,
             context_scores,
             compile_strategy,
-            alpha=alpha,
         )
 
         # pre-process distribution
